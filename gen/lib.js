@@ -53,7 +53,7 @@ const pagesFrom = function (directory) {
         }
         else {
             var rootDirX = x = directory + "/" + x
-            var html = converter.makeHtml(String(fs.readFileSync(rootDirX)))
+            var html = `<link rel="stylesheet" href="resources/stylesheet.css">\n` + converter.makeHtml(String(fs.readFileSync(rootDirX)))
             html += `\n<script src="loadIndex.js"></script>`
             fs.writeFileSync(`${rootPath}/${parsed.name}.html`, html)
             allPages.push(parsed.name)

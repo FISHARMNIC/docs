@@ -4,5 +4,5 @@
 
 Welcome the the HAM` docs
 
-* [bob]()
+* [How to install](howTo.html)
 

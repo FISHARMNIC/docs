@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="resources/stylesheet.css">
+<h1 id="howto">How To</h1>
+<hr />
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>NodeJS</li>
+<li>If on MacOS<ul>
+<li>LimaVM</li>
+<li>XQuartz (only if you are planning to use the graphics library)</li></ul></li>
+</ul>
+<h2 id="compiling">Compiling</h2>
+<pre><code>* run `node compiler/main.js &lt;file name in test/working directory&gt;`
+    * This creates an assembly file in `compiled/out.s`
+</code></pre>
+<h2 id="runningnographics">Running (no graphics)</h2>
+<ul>
+<li>MacOS<ul>
+<li>Enter <code>limactl</code></li>
+<li>Run <code>.compiler/scripts/assemble.sh</code></li></ul></li>
+<li>Linux<ul>
+<li>Run <code>.compiler/scripts/assemble.sh</code></li></ul></li>
+</ul>
+<h2 id="runningwithgraphics">Running (with graphics)</h2>
+<ul>
+<li>Compile graphics library (one time only)<ul>
+<li>Run <code>./compiler/libs/gfx/compile.sh</code><ul>
+<li>If on MacOS, add <code>limactl shell debian</code> before this on the same line</li></ul></li></ul></li>
+<li>MacOS<ul>
+<li>Run <code>.compiler/scripts/lima_x11.sh</code></li></ul></li>
+<li>Linux<ul>
+<li>Run <code>.compiler/scripts/internal/assemble_x11.sh</code></li></ul></li>
+</ul>
+<script src="loadIndex.js"></script>
