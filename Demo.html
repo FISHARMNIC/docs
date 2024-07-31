@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="resources/stylesheet.css">
+<h1 id="writingyourfirsthamprogram">Writing your first HAM` Program</h1>
+<hr />
+<p>Start by following <a href="HowTo.html">these instructions</a>, and entering the <code>compiler</code> directory.</p>
+<p>Create a new file in <code>./tests/working</code> called <code>first.x</code>. Much like <code>main</code> in C, every file needs an <code>entry</code> function. This function tells the computer where to start the program.</p>
+<pre><code>entry function&lt;&gt; -&gt; u32
+{
+
+}
+</code></pre>
+<p>Here, the entry function is takes (showed by <code>&lt;&gt;</code>), and returns a <code>u32</code>, or a 32-bit number.
+Inside of this function, we can now do anything we want:</p>
+<pre><code>entry function&lt;&gt; -&gt; u32
+{
+    printf("Hello World!\n");
+}
+</code></pre>
+<p>Now, just compile with <code>node main first.x</code> and run with <code>./scripts/assemble.sh</code> or <code>./scripts/lima_X11.sh</code> accordingly. If you're not sure what to use, make sure that you have read the <a href="HowTo.html">HowTo</a>.</p>
+<p>If it all worked correctly, you should see:</p>
+<pre><code>Hello World!
+</code></pre>
+<script src="loadIndex.js"></script>

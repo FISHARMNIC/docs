@@ -8,25 +8,32 @@
 <li>LimaVM</li>
 <li>XQuartz (only if you are planning to use the graphics library)</li></ul></li>
 </ul>
+<h2 id="installing">Installing</h2>
+<ul>
+<li>Clone <a href="https://github.com/FISHARMNIC/HAMprimeC2/tree/main">this</a> repository</li>
+</ul>
 <h2 id="compiling">Compiling</h2>
-<pre><code>* run `node compiler/main.js &lt;file name in test/working directory&gt;`
-    * This creates an assembly file in `compiled/out.s`
-</code></pre>
+<ul>
+<li>Cd into <code>compiler</code></li>
+<li>Run <code>node main.js &lt;file name in test/working directory&gt;</code><ul>
+<li>For example: <code>node main.js arrays.x</code></li>
+<li>This creates an assembly file in <code>compiled/out.s</code></li></ul></li>
+</ul>
 <h2 id="runningnographics">Running (no graphics)</h2>
 <ul>
 <li>MacOS<ul>
-<li>Enter <code>limactl</code></li>
-<li>Run <code>.compiler/scripts/assemble.sh</code></li></ul></li>
+<li>Enter Lima shell</li>
+<li>Run <code>./scripts/assemble.sh</code></li></ul></li>
 <li>Linux<ul>
-<li>Run <code>.compiler/scripts/assemble.sh</code></li></ul></li>
+<li>Run <code>./scripts/assemble.sh</code></li></ul></li>
 </ul>
 <h2 id="runningwithgraphics">Running (with graphics)</h2>
 <ul>
 <li>Compile graphics library (one time only)<ul>
-<li>Run <code>./compiler/libs/gfx/compile.sh</code><ul>
-<li>If on MacOS, add <code>limactl shell debian</code> before this on the same line</li></ul></li></ul></li>
+<li>Run <code>./libs/gfx/compile.sh</code></li>
+<li>If on MacOS, make suret do this in the Lima shell</li></ul></li>
 <li>MacOS<ul>
-<li>Run <code>.compiler/scripts/lima_x11.sh</code></li></ul></li>
+<li>Run <code>./scripts/lima_x11.sh</code></li></ul></li>
 <li>Linux<ul>
 <li>Run <code>.compiler/scripts/internal/assemble_x11.sh</code></li></ul></li>
 </ul>

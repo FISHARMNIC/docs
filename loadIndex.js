@@ -14,17 +14,23 @@ var template = `<!DOCTYPE html>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
     <link rel="stylesheet" href="resources/stylesheet.css">
 </head>
-<body style="background-color: rgb(73, 73, 73);">
+<body style="background-color: rgb(72,72,72);">
     <div class="sidenav">
         <a href="index.html">Home</a>
-        <a href="test.html">test</a>
-<a href="howTo.html">howTo</a>
+        <a href="Variables.html">Variables</a>
+<a href="Types.html">Types</a>
+<a href="Notes.html">Notes</a>
+<a href="Keywords.html">Keywords</a>
+<a href="HowTo.html">HowTo</a>
+<a href="Demo.html">Demo</a>
 <!-- !IN_NAV -->
     </div>
       
-      <div id="__main__">
+    <div id="__main__"></div>
 
-      </div>
+    <div id="__right__"></div>
+
+      
 </body>
 </html>`
 var oldBody = document.body.innerHTML
