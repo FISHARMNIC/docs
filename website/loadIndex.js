@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+window.addEventListener('load', function () {
+
+var template = `<!DOCTYPE html>
 <html lang="en" style="background-color: rgb(72,72,72);">
 <head>
     <meta charset="UTF-8">
@@ -112,4 +115,9 @@ pre {
 
       
 </body>
-</html>
+</html>`
+var oldBody = document.body.innerHTML
+document.write(template)
+document.getElementById("__main__").innerHTML = oldBody
+
+})

@@ -15,11 +15,14 @@ This is a quick library that takes a directory of .md and converts it to a websi
 */
 
 const fs = require("fs")
+const glob = require("glob")
+const fse = require('fs-extra')
+
 const showdown = require("showdown")
-const path = require('path');
+const path = require('path')
 
 var converter = new showdown.Converter()
-showdown.setFlavor('github');
+showdown.setFlavor('github')
 showdown.setOption('ghCodeBlocks', true)
 
 const r = converter.getOption('extensions') || {};
@@ -31,26 +34,29 @@ r.code = function (code, language) {
 const rootPath = __dirname + "/.."
 var allPages = []
 
-const createTemplate = function (directory) {
+const createTemplate = function (directory, useLinks = true) {
     var read = String(fs.readFileSync(directory))
-    var insertLinks = read.indexOf("<!-- !IN_NAV -->")
-    if (insertLinks == -1) {
-        console.log('In your template, you must insert the phrase "<!-- !IN_NAV -->" inside of the sidenav')
-        process.exit(0)
+
+    if (useLinks) {
+        var insertLinks = read.indexOf("<!-- !IN_NAV -->")
+        if (insertLinks == -1) {
+            console.log('In your template, you must insert the phrase "<!-- !IN_NAV -->" inside of the sidenav')
+            process.exit(0)
+        }
+
+        allPages.forEach(x => {
+
+            if (x == "index") {
+                return
+            }
+            read = read.slice(0, insertLinks) + `<a href="${x}.html">${x}</a>\n` + read.slice(insertLinks);
+        })
     }
 
-    allPages.forEach(x => {
-
-        if (x == "index") {
-            return
-        }
-        read = read.slice(0, insertLinks) + `<a href="${x}.html">${x}</a>\n` + read.slice(insertLinks);
-    })
 
 
-
-    fs.writeFileSync(`${rootPath}/template.html`, read)
-    fs.writeFileSync(rootPath + "/loadIndex.js",
+    fse.outputFileSync(`${rootPath}/website/template.html`, read)
+    fse.outputFileSync(rootPath + "/website/loadIndex.js",
         `
 window.addEventListener('load', function () {
 
@@ -65,7 +71,12 @@ document.getElementById("__main__").innerHTML = oldBody
 }
 
 const pagesFrom = function (directory) {
-    var allInDir = fs.readdirSync(directory)
+    //var allInDir = fs.readdirSync(directory)
+    fse.emptyDirSync(rootPath + "/website")
+
+    //console.log(rootPath + "/" + directory + 'pages/**/*')
+    glob(rootPath + "/" + directory + '/**/*', function(err,res) {
+        allInDir = res
 
     allInDir.forEach(x => {
         var parsed = path.parse(x)
@@ -76,13 +87,15 @@ const pagesFrom = function (directory) {
             process.exit(0)
         }
         else {
-            var rootDirX = x = directory + "/" + x
-            var html = `<link rel="stylesheet" href="resources/stylesheet.css">\n` + converter.makeHtml(String(fs.readFileSync(rootDirX)))
-            html += `\n<script src="loadIndex.js"></script>`
-            fs.writeFileSync(`${rootPath}/${parsed.name}.html`, html)
+            var timesNested = `${parsed.dir.slice(parsed.dir.indexOf(directory) + directory.length)}/${parsed.name}.html`.split("/").length - 2
+        
+            var html = converter.makeHtml(String(fs.readFileSync(x)))
+            html += `\n</body>\n<script src="${"../".repeat(timesNested)}loadIndex.js"></script>`
+            fse.outputFileSync(`${rootPath}/website/${parsed.dir.slice(parsed.dir.indexOf(directory) + directory.length)}/${parsed.name}.html`, html, { recursive: true })
             allPages.push(parsed.name)
         }
     })
+});
 }
 
 
