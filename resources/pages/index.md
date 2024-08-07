@@ -3,11 +3,15 @@
 ---
 
 ## Get Started
-* [How to install](HowTo.html)
-* [First program](Demo.html)
+* [How to install](Examples/HowTo.html)
+* [First program](Examples/Demo.html)
 * [Important Notes](Notes.html)
 ## Documentation
-* [Types](Types.html)
-* [Variables](Variables.html)
+* Variables
+    * [Usage](Variables/usage.html)
+    * [Types](Variables/types.html)
+* Arrays
+    * [Usage](Arrays/usage.html)
 * Keywords
     * [call](Keywords/call.html)
+    * [persistent](Keywords/persistent.html)

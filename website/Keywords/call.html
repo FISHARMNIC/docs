@@ -1,4 +1,30 @@
-<h1 id="keywords">Keywords</h1>
+<h1 id="keywordcall">Keyword: <code>call</code></h1>
 <hr />
+<p>In order to call a function, the compiler needs to acknowledge it's existence. This means that one of the following must be true:  </p>
+<ul>
+<li>The function is pre-defined in the compiler</li>
+<li>The function has been declared and compiled</li>
+<li>The function has been defined in a forward declaration
+<br>
+If none of these are true however, a function can still be called via a pointer. This pointer can be a direct memory address, a variable, etc. In order to do so, before the function call, you must write <code>call</code>. You can also provide a return type (optional) by adding a type after the word <code>call</code>.</li>
+</ul>
+<pre><code>/* 
+ * Example function that expects a function as it's third parameter
+ * In this case, 'iterator' is a p32. The type doesn't actually matter
+*/
+forEach function&lt;p32 arr, u32 size, p32 iterator&gt; -&gt; u32 {
+        create i &lt;- 0;
+        while(i &lt;: size)
+        {
+            /* 
+             * Call the iterator and read its return as a u32 
+             * The u32 can be taken out, this is just to show
+            */
+            call u32 iterator(arr[i]);
+            i &lt;- (i + 1);
+        }
+        return 0;
+    }
+</code></pre>
 </body>
 <script src="../loadIndex.js"></script>

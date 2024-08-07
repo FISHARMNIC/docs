@@ -87,12 +87,13 @@ const pagesFrom = function (directory) {
             process.exit(0)
         }
         else {
-            var timesNested = `${parsed.dir.slice(parsed.dir.indexOf(directory) + directory.length)}/${parsed.name}.html`.split("/").length - 2
+            var lclPath = parsed.dir.slice(parsed.dir.indexOf(directory) + directory.length)
+            var timesNested = `${lclPath}/${parsed.name}.html`.split("/").length - 2
         
             var html = converter.makeHtml(String(fs.readFileSync(x)))
             html += `\n</body>\n<script src="${"../".repeat(timesNested)}loadIndex.js"></script>`
-            fse.outputFileSync(`${rootPath}/website/${parsed.dir.slice(parsed.dir.indexOf(directory) + directory.length)}/${parsed.name}.html`, html, { recursive: true })
-            allPages.push(parsed.name)
+            fse.outputFileSync(`${rootPath}/website/${lclPath}/${parsed.name}.html`, html, { recursive: true })
+            allPages.push(lclPath + "/" + parsed.name)
         }
     })
 });
