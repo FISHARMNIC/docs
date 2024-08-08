@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+    window.addEventListener('load', function () {
+    
+    var template = `<!DOCTYPE html>
 <html lang="en" style="background-color: rgb(72,72,72);">
 
 <head>
@@ -156,25 +159,25 @@
     <div id="__link_train__"></div>
     <div class="sidenav">
 
-        <a href="/website/Index.html">• Index</a>
-<a href="/website/Notes.html">• Notes</a>
-</details><details><summary>Arrays</summary><a href="/website/Arrays/Usage.html">• Usage</a>
-</details><details><summary>Examples</summary><a href="/website/Examples/Demo.html">• Demo</a>
-<a href="/website/Examples/HowTo.html">• HowTo</a>
-</details><details><summary>Formats</summary><a href="/website/Formats/Class.html">• Class</a>
-<a href="/website/Formats/Usage.html">• Usage</a>
-</details><details><summary>Keywords</summary><a href="/website/Keywords/__ccalled__.html">• __ccalled__</a>
-<a href="/website/Keywords/__Define.html">• __Define</a>
-<a href="/website/Keywords/__Rule.html">• __Rule</a>
-<a href="/website/Keywords/Call.html">• Call</a>
-<a href="/website/Keywords/Forward.html">• Forward</a>
-<a href="/website/Keywords/Import.html">• Import</a>
-<a href="/website/Keywords/Include.html">• Include</a>
-<a href="/website/Keywords/Persistent.html">• Persistent</a>
-</details><details><summary>Libraries</summary><a href="/website/Libraries/Bignums.html">• Bignums</a>
-<a href="/website/Libraries/Graphics.html">• Graphics</a>
-</details><details><summary>Variables</summary><a href="/website/Variables/Types.html">• Types</a>
-<a href="/website/Variables/Usage.html">• Usage</a>
+        <a href="/docs/Index.html">• Index</a>
+<a href="/docs/Notes.html">• Notes</a>
+</details><details><summary>Arrays</summary><a href="/docs/Arrays/Usage.html">• Usage</a>
+</details><details><summary>Examples</summary><a href="/docs/Examples/Demo.html">• Demo</a>
+<a href="/docs/Examples/HowTo.html">• HowTo</a>
+</details><details><summary>Formats</summary><a href="/docs/Formats/Class.html">• Class</a>
+<a href="/docs/Formats/Usage.html">• Usage</a>
+</details><details><summary>Keywords</summary><a href="/docs/Keywords/__ccalled__.html">• __ccalled__</a>
+<a href="/docs/Keywords/__Define.html">• __Define</a>
+<a href="/docs/Keywords/__Rule.html">• __Rule</a>
+<a href="/docs/Keywords/Call.html">• Call</a>
+<a href="/docs/Keywords/Forward.html">• Forward</a>
+<a href="/docs/Keywords/Import.html">• Import</a>
+<a href="/docs/Keywords/Include.html">• Include</a>
+<a href="/docs/Keywords/Persistent.html">• Persistent</a>
+</details><details><summary>Libraries</summary><a href="/docs/Libraries/Bignums.html">• Bignums</a>
+<a href="/docs/Libraries/Graphics.html">• Graphics</a>
+</details><details><summary>Variables</summary><a href="/docs/Variables/Types.html">• Types</a>
+<a href="/docs/Variables/Usage.html">• Usage</a>
 <!-- !IN_NAV -->
     </div>
 
@@ -185,4 +188,12 @@
 
 </body>
 
-</html>
+</html>`
+    var oldBody = document.body.innerHTML
+    document.write(template)
+    document.getElementById("__main__").innerHTML = oldBody
+    var _path = window.location.pathname.slice(1).split("/")
+    var build = ""
+    document.getElementById("__link_train__").innerHTML = _path.map(x => {return `<a href=${build += "/" + x}>${x}</a> >`}).join(" ").slice(0, -1)
+    })
+    

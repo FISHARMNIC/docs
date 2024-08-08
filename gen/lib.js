@@ -36,7 +36,7 @@ var allPages = []
 
 const pagesFrom = function (directory, template, useLinks = true) {
     //var allInDir = fs.readdirSync(directory)
-    fse.emptyDirSync(rootPath + "/website")
+    fse.emptyDirSync(rootPath + "/docs")
 
     //console.log(rootPath + "/" + directory + 'pages/**/*')
     glob(rootPath + "/" + directory + '/**/*', function (err, res) {
@@ -56,7 +56,7 @@ const pagesFrom = function (directory, template, useLinks = true) {
 
                 var html = converter.makeHtml(String(fs.readFileSync(x)))
                 html += `\n</body>\n<script src="${"../".repeat(timesNested)}loadIndex.js"></script>`
-                fse.outputFileSync(`${rootPath}/website/${lclPath}/${parsed.name}.html`, html, { recursive: true })
+                fse.outputFileSync(`${rootPath}/docs/${lclPath}/${parsed.name}.html`, html, { recursive: true })
                 allPages.push(lclPath + "/" + parsed.name)
                 //allPages.push("hi")
                 //console.log("bob")
@@ -97,7 +97,7 @@ const pagesFrom = function (directory, template, useLinks = true) {
                 }
                 console.log("name", _name, "...parent...", parentDir)
 
-                outBuffer.push(`<a href="/website${x}.html">• ${_name}</a>\n`)
+                outBuffer.push(`<a href="/docs${x}.html">• ${_name}</a>\n`)
                 //read = read.slice(0, insertLinks) + `<a href="${x}.html">${x}</a>\n` + read.slice(insertLinks);
                 lastParentDir = parentDir
             })
@@ -107,8 +107,8 @@ const pagesFrom = function (directory, template, useLinks = true) {
         }
     
 
-        fse.outputFileSync(`${rootPath}/website/template.html`, read)
-        fse.outputFileSync(rootPath + "/website/loadIndex.js",
+        fse.outputFileSync(`${rootPath}/docs/template.html`, read)
+        fse.outputFileSync(rootPath + "/docs/loadIndex.js",
             `
     window.addEventListener('load', function () {
     
