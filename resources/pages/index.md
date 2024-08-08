@@ -8,13 +8,19 @@
 * [Important Notes](Notes.html)
 ## Documentation
 * Variables
-    * [Usage](Variables/usage.html)
-    * [Types](Variables/types.html)
+    * [Usage](Variables/Usage.html)
+    * [Types](Variables/Types.html)
 * Arrays
-    * [Usage](Arrays/usage.html)
+    * [Usage](Arrays/Usage.html)
 * Keywords
-    * [call](Keywords/call.html)
-    * [persistent](Keywords/persistent.html)
+    * [call](Keywords/Call.html)
+    * [persistent](Keywords/Persistent.html)
+    * [__rule](Keywords/__Rule.html)
+    * [__Define](Keywords/__define.html)
+    * [import](Keywords/Import.html)
+    * [forward](Keywords/Forward.html)
+    * [\_\_ccalled\_\_](Keywords/__ccalled__.html)
+    * [include](Keywords/Include.html)
 * Formats
-    * [Formats as structures](Formats/usage.html)
-    * [Formats as classes](Formats/class.html)
+    * [Formats as structures](Formats/Usage.html)
+    * [Formats as classes](Formats/Class.html)

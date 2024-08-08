@@ -1,0 +1,11 @@
+<h1 id="keyword__ccalled__">Keyword: <code>__ccalled__</code></h1>
+<hr />
+<p><code>__ccalled__</code> specifies that the function will be called from C. By default, HAM` optimizes if registers should be saved before a function call. Without this, any registers that should be preserved by the callee might not be, result in undefined behavior.</p>
+<p>In order to use this keyword, place it before a function declaration.</p>
+<pre><code>__ccalled__ doSomething function&lt;&gt; -&gt; u32
+{
+    printf("Something\n");
+}
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>
