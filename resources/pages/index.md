@@ -15,3 +15,6 @@
 * Keywords
     * [call](Keywords/call.html)
     * [persistent](Keywords/persistent.html)
+* Formats
+    * [Formats as structures](Formats/usage.html)
+    * [Formats as classes](Formats/class.html)

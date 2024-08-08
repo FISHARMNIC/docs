@@ -1,0 +1,83 @@
+<h1 id="formatsasclasses">Formats as classes</h1>
+<hr />
+<h2 id="prefix">Prefix</h2>
+<p>All of the methods and constructors that are declared as part of a format are not actual properties of the structure. This means that they do not take up space in the structure. Additionally, all methods and constructors should be declared after all properties have been declared.</p>
+<p>For all examples, suppose we are inside of a format declaration as so:</p>
+<pre><code>Person format
+{
+    .age u32;
+    .name p8;
+    &lt;ALL FOLLOWING METHODS AND CONSTRUCTORS GO HERE&gt;
+}
+</code></pre>
+<h2 id="this"><code>this</code></h2>
+<p><code>this</code> can be used inside of methods and constructors as a reference to the instance that is calling it. Modifiying any of the properties of <code>this</code> will result in the modification of the instance that called it.</p>
+<h2 id="constructors">Constructors</h2>
+<section style="padding-left: 100px">
+
+<h3> Creating </h3>
+<pre><code>.&lt;format&gt; constructor&lt;&lt;parameters&gt;&gt;
+{
+    ...
+}
+</code></pre><pre><code>/* Simple constructor demo. Notice how nothing is returned.
+.Person constructor&lt;u32 inAge, p8 inName&gt;
+{
+    this.age &lt;- inAge;
+    this.name &lt;- inName;
+}
+</code></pre>
+<h3> Calling </h3>
+<pre><code>&lt;format&gt;(&lt;parameters&gt;);     # Notice the use of parenthesis instead of angle brackets
+</code></pre><pre><code>Person(17, "Nico")
+</code></pre>
+
+<h3> Note </h3>
+
+After a constructor is created, you can still create an instance by using the normal way of instancing formats. Any format instance using the structure instance has no different properties than that of one using the class instance. This means that if an instance was created using the structure instance, you can still use all of the same methods.
+</section>
+<h2 id="methods">Methods</h2>
+<pre><code>.&lt;name&gt; method&lt;&lt;parameters&gt;&gt; -&gt; &lt;return&gt; 
+{
+    ...
+}
+</code></pre>
+<pre><code>.print method&lt;&gt; -&gt; u32 
+{
+    printf("Hello! My name is %s and I am %i years old.", this.name, this.age);
+}
+</code></pre>
+<h2 id="finalexample">Final example</h2>
+<pre><code>Person format
+{
+    .age u32;
+    .name p8;
+
+    .Person constructor&lt;u32 inAge, p8 inName&gt;
+    {
+        this.age &lt;- inAge;
+        this.name &lt;- inName;
+    }
+
+    .print method&lt;&gt; -&gt; u32 
+    {
+        printf("Hello! My name is %s and I am %i years old.", this.name, this.age);
+    }
+}
+
+entry function&lt;&gt; -&gt; u32 
+{
+    /* 
+    The following two lines produce an identical format instance in terms of their inner workings. 
+    (Their values are different though)
+    */
+    create me &lt;- Person(17, "Nico");                  /* Class instance */
+    create awsomePerson&lt;- Person&lt;age:17, name:"Nina"&gt; /* Structure instance */
+
+    /* This means that methods can be called from both */
+    me.print();
+    awesomePerson.print();
+}
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>

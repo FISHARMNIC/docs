@@ -1,0 +1,67 @@
+<h1 id="formatsasstructures">Formats as structures</h1>
+<hr />
+<h2 id="creating">Creating</h2>
+<pre><code>&lt;name&gt; format {
+    .&lt;property&gt; &lt;type&gt;;
+    .&lt;property&gt; &lt;type&gt;;
+    ...
+}
+</code></pre>
+<pre><code>Person format {                                 # Create a new format named "Person"
+    .name p8;                                   # Create a new property "name" as a string
+    .age u32;                                   # Create a new property "age" as a u32
+}
+</code></pre>
+<h2 id="instancing">Instancing</h2>
+<pre><code>&lt;name&gt;&lt;&lt;property&gt;:&lt;value&gt;,&lt;property&gt;:&lt;value&gt;&gt;   # Note: the second "&lt;&gt;" should be written
+</code></pre>
+<pre><code>Person&lt;name:"Nico",age:17&gt;                      # Create a new instance of Person with the name "Nico" and age 17
+</code></pre>
+<h2 id="assignation">Assignation</h2>
+<p>Assignation can be done in the same way as an array</p>
+<pre><code>create human &lt;- Person&lt;name:"Nico",age:17&gt;;
+</code></pre>
+<pre><code>create human Person;                            # Create a pointer 
+...
+human &lt;- Person&lt;name:"Nico",age:17&gt;;            # Assign the format to the pointer
+</code></pre>
+<h2 id="accessing">Accessing</h2>
+<pre><code>&lt;instance&gt;.&lt;property&gt;
+</code></pre>
+<pre><code>human.name                                      # Returns property "name" of "human" (Nico)
+</code></pre>
+<h2 id="modification">Modification</h2>
+<pre><code>&lt;instance&gt;.&lt;property&gt; &lt;- &lt;value&gt;;
+</code></pre>
+<pre><code>human.age &lt;- 100;                               # Makes "age" of "human" 100
+</code></pre>
+<h2 id="nesting">Nesting</h2>
+<p>Format nesting is supported. In order to do this, the child must be declared before the parent. See this example:</p>
+<pre><code>Person format
+{
+    .age u32;
+    .name p8;
+}
+
+Student format
+{
+    .info Person; /* declare "info" as a "Person"
+    .id u32;
+}
+
+
+entry function&lt;&gt; -&gt; u32
+{
+    /* To create a nested instance, look at the following line */
+    create bob &lt;- Student&lt;id:123,info:Person&lt;age:15,name:"bob"&gt;&gt;;
+
+    /* Reading and writing nested properties can be done with consecutive periods. */
+    bob.info.age &lt;- 16;
+    printf("The student %s (id #%i) is %i years old\n", bob.info.name, bob.id, bob.info.age);
+}
+</code></pre>
+<h2 id="technicaldetails">Technical details</h2>
+<p>--
+All formats are packed.</p>
+</body>
+<script src="../loadIndex.js"></script>

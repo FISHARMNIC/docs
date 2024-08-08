@@ -18,4 +18,5 @@ p16: Pointer to a 16-bit number (short int *)
 p8 : Pointer to a 8-bit  number (signed char *)
 ```
 
-
+## Formats
+After declaring a format, the name of the format can now be used as a regular type. See `formats`.
