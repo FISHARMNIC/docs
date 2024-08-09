@@ -15,11 +15,11 @@
 * Keywords
     * [call](Keywords/Call.html)
     * [persistent](Keywords/Persistent.html)
-    * [__rule](Keywords/__Rule.html)
-    * [__Define](Keywords/__define.html)
+    * [__rule](Keywords/Rule.html)
+    * [__Define](Keywords/Define.html)
     * [import](Keywords/Import.html)
     * [forward](Keywords/Forward.html)
-    * [\_\_ccalled\_\_](Keywords/__ccalled__.html) 
+    * [\_\_ccalled\_\_](Keywords/Ccalled.html) 
     * [include](Keywords/Include.html)
 * Formats
     * [Formats as structures](Formats/Usage.html)
