@@ -159,7 +159,7 @@
     <div id="__link_train__"></div>
     <div class="sidenav">
 
-        <a href="/docs/Index.html">• Index</a>
+        <a href="/docs/index.html">• index</a>
 <a href="/docs/Notes.html">• Notes</a>
 </details><details><summary>Arrays</summary><a href="/docs/Arrays/Usage.html">• Usage</a>
 </details><details><summary>Examples</summary><a href="/docs/Examples/Demo.html">• Demo</a>
