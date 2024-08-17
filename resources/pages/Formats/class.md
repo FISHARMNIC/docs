@@ -26,7 +26,7 @@ Person format
 <h3> Creating </h3>
 
 ```
-.<format> constructor<<parameters>>
+.<format> constructor<<type><parameter>,<type><parameter>>
 {
     ...
 }
@@ -55,9 +55,9 @@ After a constructor is created, you can still create an instance by using the no
 
 ## Methods
 ```
-.<name> method<<parameters>> -> <return> 
+.<name> method<<arguments>> -> <return> 
 {
-    ...
+    // ...
 }
 ```
 ```

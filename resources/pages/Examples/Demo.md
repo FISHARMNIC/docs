@@ -10,7 +10,7 @@ entry function<> -> u32
     
 }
 ```
-Here, the entry function is takes (showed by `<>`), and returns a `u32`, or a 32-bit number.
+Here, the entry function takes no arguments (showed by `<>`), and returns a `u32`, or a 32-bit number.
 Inside of this function, we can now do anything we want:
 ```
 entry function<> -> u32

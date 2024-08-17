@@ -16,7 +16,7 @@
 <section style="padding-left: 100px">
 
 <h3> Creating </h3>
-<pre><code>.&lt;format&gt; constructor&lt;&lt;parameters&gt;&gt;
+<pre><code>.&lt;format&gt; constructor&lt;&lt;type&gt;&lt;parameter&gt;,&lt;type&gt;&lt;parameter&gt;&gt;
 {
     ...
 }
@@ -37,9 +37,9 @@
 After a constructor is created, you can still create an instance by using the normal way of instancing formats. Any format instance using the structure instance has no different properties than that of one using the class instance. This means that if an instance was created using the structure instance, you can still use all of the same methods.
 </section>
 <h2 id="methods">Methods</h2>
-<pre><code>.&lt;name&gt; method&lt;&lt;parameters&gt;&gt; -&gt; &lt;return&gt; 
+<pre><code>.&lt;name&gt; method&lt;&lt;arguments&gt;&gt; -&gt; &lt;return&gt; 
 {
-    ...
+    // ...
 }
 </code></pre>
 <pre><code>.print method&lt;&gt; -&gt; u32 

@@ -1,3 +1,26 @@
-<p>todo, and don't forget variadics, extern, forward/prototypes</p>
+<h1 id="declaringfunctions">Declaring Functions</h1>
+<hr />
+<h2 id="declaration">Declaration</h2>
+<pre><code>&lt;name&gt; function&lt;&lt;type&gt; &lt;parameter&gt;, &lt;type&gt; &lt;parameter&gt;&gt; -&gt; &lt;return&gt;
+{
+
+}
+</code></pre>
+<pre><code>myFunction function&lt;u32 a, u32 b&gt; -&gt; u16
+{
+    // ... code
+}
+</code></pre>
+<h2 id="variadics">Variadics</h2>
+<p>Variadics are declared by adding an ellipsis as the last parameter</p>
+<pre><code>someFunction function&lt;u32 a, ...&gt; -&gt; u16
+{
+    // ... code
+}
+</code></pre>
+<p>In order to read the arguments, you can use</p>
+<pre><code>__arguments[&lt;index&gt;]
+</code></pre>
+<p>However, this array is based at the start of all parameters. This means that if your variadic arguments begin at parameter number two (as in the example <code>someFunction</code> above), then you want to start reading from address 1.</p>
 </body>
 <script src="../loadIndex.js"></script>

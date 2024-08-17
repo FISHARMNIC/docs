@@ -10,7 +10,7 @@
 <p>If none of these are true however, a function can still be called via a pointer. This pointer can be a direct memory address, a variable, etc. In order to do so, before the function call, you must write <code>call</code>. You can also provide a return type (optional) by adding a type after the word <code>call</code>.</p>
 <pre><code>/* 
  * Example function that expects a function as it's third parameter
- * In this case, 'iterator' is a p32. The type doesn't actually matter
+ * In this case, 'iterator' is a p32. The type doesn't actually matter as long as it holds 32 bits
 */
 forEach function&lt;p32 arr, u32 size, p32 iterator&gt; -&gt; u32 {
         create i &lt;- 0;

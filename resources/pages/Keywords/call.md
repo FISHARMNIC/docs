@@ -12,7 +12,7 @@ If none of these are true however, a function can still be called via a pointer.
 ```
 /* 
  * Example function that expects a function as it's third parameter
- * In this case, 'iterator' is a p32. The type doesn't actually matter
+ * In this case, 'iterator' is a p32. The type doesn't actually matter as long as it holds 32 bits
 */
 forEach function<p32 arr, u32 size, p32 iterator> -> u32 {
         create i <- 0;
