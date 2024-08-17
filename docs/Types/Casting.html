@@ -1,0 +1,13 @@
+<h1 id="casting">Casting</h1>
+<hr />
+<p>Note: currently casting does not work between floats and integers. This means that you <strong>cannot</strong> do <code>f32:(123)</code> or something of the sort</p>
+<pre><code>&lt;type&gt;:(&lt;value&gt;)
+</code></pre>
+<pre><code>p16:(753664)       # casts to a pointer type
+</code></pre>
+<p>Values can also be casted to a format type and then used as such</p>
+<pre><code>create jon &lt;- Person:(&lt;some pointer&gt;);
+printf("%i\n", jon.age);
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>

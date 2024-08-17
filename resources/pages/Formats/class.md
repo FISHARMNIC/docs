@@ -42,7 +42,7 @@ Person format
 <h3> Calling </h3>
 
 ```
-<format>(<parameters>);     # Notice the use of parenthesis instead of angle brackets
+<format>(<parameters>);    // Notice the use of parenthesis instead of angle brackets
 ```
 ```
 Person(17, "Nico")

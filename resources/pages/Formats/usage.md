@@ -11,17 +11,17 @@
 }
 ```
 ```
-Person format {                                 # Create a new format named "Person"
-    .name p8;                                   # Create a new property "name" as a string
-    .age u32;                                   # Create a new property "age" as a u32
+Person format {                                // Create a new format named "Person"
+    .name p8;                                  // Create a new property "name" as a string
+    .age u32;                                  // Create a new property "age" as a u32
 }
 ```
 ## Instancing
 ```
-<name><<property>:<value>,<property>:<value>>   # Note: the second "<>" should be written
+<name><<property>:<value>,<property>:<value>>  // Note: the second "<>" should be written
 ```
 ```
-Person<name:"Nico",age:17>                      # Create a new instance of Person with the name "Nico" and age 17
+Person<name:"Nico",age:17>                     // Create a new instance of Person with the name "Nico" and age 17
 ```
 ## Assignation
 Assignation can be done in the same way as an array
@@ -29,23 +29,23 @@ Assignation can be done in the same way as an array
 create human <- Person<name:"Nico",age:17>;
 ```
 ```
-create human Person;                            # Create a pointer 
+create human Person;                           // Create a pointer 
 ...
-human <- Person<name:"Nico",age:17>;            # Assign the format to the pointer
+human <- Person<name:"Nico",age:17>;           // Assign the format to the pointer
 ```
 ## Accessing
 ```
 <instance>.<property>
 ```
 ```
-human.name                                      # Returns property "name" of "human" (Nico)
+human.name                                     // Returns property "name" of "human" (Nico)
 ```
 ## Modification
 ```
 <instance>.<property> <- <value>;
 ```
 ```
-human.age <- 100;                               # Makes "age" of "human" 100
+human.age <- 100;                              // Makes "age" of "human" 100
 ```
 ## Nesting
 Format nesting is supported. In order to do this, the child must be declared before the parent. See this example:

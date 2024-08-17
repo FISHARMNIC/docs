@@ -1,4 +1,75 @@
 <h1 id="libraryx11">Library: <code>x11</code></h1>
 <hr />
+<p>This "library" is more of a compatibility layer for Xlib. It simplifies it a lot and allows you to draw shapes and get user input. To use the graphics library, write:</p>
+<pre><code># include sys x11
+</code></pre>
+<h2 id="createaneventfunction">Create an event function</h2>
+<p>The event function must take one parameter of type u32, and be declared as <code>__ccalled__</code>. The return type does not matter. This is called whenever an event is trigged inside of the x11 window. The active listeners are listed below, however more can be added by modifying the function <code>XSelectInput</code> in <code>compiler/libs/gfx/gfx.c</code> (recompilation required):</p>
+<pre><code>ExposureMask
+KeyPressMask
+PointerMotionMask
+ButtonPressMask
+ButtonReleaseMask
+</code></pre>
+<p>When the event function is called, the parameter will be set to a certain event number. Instead of knowing the number, there are a set of macros which can be used to identify the event. Most of them are just the names of the event masks without the word <code>mask</code>. Here are two examples that correspond to the mouse down/up events:</p>
+<pre><code>ButtonPress
+ButtonRelease
+</code></pre>
+<p>Here is an example event function prototype:</p>
+<pre><code>__ccalled__ trigger function&lt;u32 event&gt; -&gt; u32;
+</code></pre>
+<h2 id="settingupthewindow">Setting up the window</h2>
+<p>Before doing anything else, you must run this function to setup the connection to the XServer</p>
+<pre><code>gfx_setup(&lt;u32 width&gt;, &lt;u32 height&gt;);
+</code></pre>
+<p>And then you can map the window by calling</p>
+<pre><code>gfx_begin(&lt;function pointer&gt;);
+</code></pre>
+<p>This parameter expects the pointer to the event function explained above</p>
+<h2 id="displayfunctions">Display functions</h2>
+<pre><code>// All parameters are of type u32
+gfx_clear();
+gfx_draw_rect(x,y,w,h);
+gfx_draw_arc(x,y,r,a1,a2);
+</code></pre>
+<h2 id="inputvariables">Input variables</h2>
+<pre><code>u32 gfx_mouse_x;
+u32 gfx_mouse_y;
+u32 gfx_mouse_button;
+u32 gfx_keypress_keycode;
+u8 gfx_keypress_key;
+</code></pre>
+<h2 id="compiling">Compiling</h2>
+<p>See the <a href="/docs/Examples/HowTo.html">tutorial</a> and check under <code>Running (graphics)</code> on how to compile correctly</p>
+<h2 id="examplecode">Example code</h2>
+<p>This code places a square at the users mouse that grows and shrinks when clicked</p>
+<pre><code>/* Assemble with scripts/lima_x11.sh */
+
+#include sys x11
+
+create size &lt;- 20;
+__ccalled__ render function&lt;u32 event&gt; -&gt; u32
+{
+    gfx_clear();
+    if(event == ButtonPress)
+    {
+        size &lt;- (size + 10);
+        gfx_mouse_x &lt;- (gfx_mouse_x - 5);
+        gfx_mouse_y &lt;- (gfx_mouse_y - 5);
+    } 
+    elif(event == ButtonRelease)
+    {
+        size &lt;- (size - 10);
+
+    }
+    gfx_draw_rect((gfx_mouse_x - 10),(gfx_mouse_y - 10),size,size);
+}
+
+entry function&lt;&gt; -&gt; u32
+{
+    gfx_setup(500, 360);
+    gfx_begin($render);
+}
+</code></pre>
 </body>
 <script src="../loadIndex.js"></script>

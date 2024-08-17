@@ -11,7 +11,9 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
 ## Documentation
 * Variables
     * [Usage](Variables/Usage.html)
-    * [Types](Variables/Types.html)
+    * [Types](Types/Types.html)
+    * [Casting](Types/Casting.html)
+    * [Floats](Types/Floats.html)
 * Arrays
     * [Usage](Arrays/Usage.html)
 * Keywords
@@ -26,3 +28,6 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
 * Formats
     * [Formats as structures](Formats/Usage.html)
     * [Formats as classes](Formats/Class.html)
+* Libraries
+    * [Graphics](Libraries/Graphics.html)
+    * [Bignums](Libraries/Bignums.html)

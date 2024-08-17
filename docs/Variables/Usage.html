@@ -1,13 +1,14 @@
 <h1 id="variables">Variables</h1>
 <hr />
 <h2 id="creating">Creating</h2>
-<pre><code>create &lt;name&gt; &lt;- &lt;value&gt;;        # Given value with implicit type
-create &lt;type&gt; &lt;name&gt; &lt;- &lt;value&gt;; # Given value with explicit type
-create &lt;type&gt; &lt;name&gt;;            # Unspecified value (default 0) with explicit type
+<pre><code>create &lt;name&gt; &lt;- &lt;value&gt;;        // Given value with implicit type
+create &lt;type&gt; &lt;name&gt; &lt;- &lt;value&gt;; // Given value with explicit type
+create &lt;type&gt; &lt;name&gt;;            // Unspecified value (default 0) with explicit type
 </code></pre>
-<pre><code>create foo &lt;- 123;               # Create "foo" with the value "123" as a u32
-create u16 bar &lt;- 456;           # Create "bar" with the value "456" as a u16
-create p8 bat;                   # Create "bat" with the value "0" as a p8
+<pre><code>create foo &lt;- 123;               // Create "foo" with the value "123" as a u32
+create u16 bar &lt;- 456;           // Create "bar" with the value "456" as a u16
+create p8 bat;                   // Create "bat" with the value "0" as a p8
+create jon &lt;- u8:(123);          // See casting
 </code></pre>
 <h2 id="setting">Setting</h2>
 <pre><code>&lt;name&gt; &lt;- &lt;value&gt;;
