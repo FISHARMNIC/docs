@@ -2,6 +2,8 @@
 
 ---
 
+This documentation is still a large WIP. Currently, I am focusing more on the development of the compiler itself. Thank you for your understanding.
+
 ## Get Started
 * [How to install](Examples/HowTo.html)
 * [First program](Examples/Demo.html)
