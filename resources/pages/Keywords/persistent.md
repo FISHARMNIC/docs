@@ -1,7 +1,7 @@
 # Keyword: `persistent`
 
 ---
-The `persistent` keyword is used to force an allocation to be accesible on the global scope. It is only applicable in inside of a function, and can be used before any thing that needs to be allocated. This includes `arrays` and `formats`. Everything that is allocated using `persistent` needs to be freed using `destroy`.
+The `persistent` keyword is only useful if `defaultTransience` is enabled. It used to force an allocation to be accesible on the global scope. It is only applicable in inside of a function, and can be used before any thing that needs to be allocated. This includes `arrays` and `formats`. It is automatically freed using the garbage collection system.
 ```
 genArrs function<> -> p32
 {

@@ -18,15 +18,19 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
 * Functions
     * [Declaring](Functions/Declaring.html)
     * [Calling](Functions/Calling.html)
+    * [return_new](Keywords/Return_new.html)
 * Keywords
     * [call](Keywords/Call.html)
     * [persistent](Keywords/Persistent.html)
+    * [transient](Keywords/Transient.html)
     * [__rule](Keywords/Rule.html)
     * [__Define](Keywords/Define.html)
     * [import](Keywords/Import.html)
     * [forward](Keywords/Forward.html)
     * [\_\_ccalled\_\_](Keywords/Ccalled.html) 
     * [include](Keywords/Include.html)
+    * [copy](Keywords/Copy.html)
+    * [return_new](Keywords/Return_new.html)
 * Libraries
     * [Graphics](Libraries/Graphics.html)
     * [Bignums](Libraries/Bignums.html)

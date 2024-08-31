@@ -24,3 +24,5 @@ Determines whether statically allocated arrays also store their size or not. Thi
 default: `false`
 
 Tells the compiler whether to link the allocation library. This is useful if you have a linked C file that uses the `__allocate__` function.
+
+### defaultTransience
