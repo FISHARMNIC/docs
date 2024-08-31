@@ -171,12 +171,15 @@
 <a href="/docs/Functions/Declaring.html">• Declaring</a>
 </details><details><summary>Keywords</summary><a href="/docs/Keywords/Call.html">• Call</a>
 <a href="/docs/Keywords/Ccalled.html">• Ccalled</a>
+<a href="/docs/Keywords/Copy.html">• Copy</a>
 <a href="/docs/Keywords/Define.html">• Define</a>
 <a href="/docs/Keywords/Forward.html">• Forward</a>
 <a href="/docs/Keywords/Import.html">• Import</a>
 <a href="/docs/Keywords/Include.html">• Include</a>
 <a href="/docs/Keywords/Persistent.html">• Persistent</a>
+<a href="/docs/Keywords/Return_new.html">• Return_new</a>
 <a href="/docs/Keywords/Rule.html">• Rule</a>
+<a href="/docs/Keywords/Transient.html">• Transient</a>
 </details><details><summary>Libraries</summary><a href="/docs/Libraries/Bignums.html">• Bignums</a>
 <a href="/docs/Libraries/Graphics.html">• Graphics</a>
 </details><details><summary>Math</summary><a href="/docs/Math/Details.html">• Details</a>

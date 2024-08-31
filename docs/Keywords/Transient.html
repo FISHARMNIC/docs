@@ -1,0 +1,10 @@
+<h1 id="keywordtransient">Keyword: <code>transient</code></h1>
+<hr />
+<p>Using <code>transient</code> forces data to be allocated on the stack instead of globally. It is only useful if <code>defaultTransience</code> is disabed (default). If transient data is allocated, it will be lost at the end of a function.</p>
+<pre><code>genArrs function&lt;&gt; -&gt; p32
+{
+    create rarr &lt;- transient {1,2,3};
+}
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>
