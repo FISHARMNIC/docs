@@ -36,6 +36,7 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
     * [Bignums](Libraries/Bignums.html)
 * Math
     * [Usage](Math/Math.html)
+    * [Strings](Math/Strings.html)
     * [Note](Math/Details.html)
 * Variables
     * [Usage](Variables/Usage.html)

@@ -24,5 +24,13 @@ p8 : Pointer to a 8-bit  number (signed char *)
 f32: 32-bit float (float)
 ```
 
+## Special
+
+```
+string: Same as p8 except allows for special functionality in printing. Default for literals
+any   : !! Still in development !!
+smart : !! Still in development !!
+```
+
 ## Formats
 After declaring a format, the name of the format can now be used as a regular type. See `formats`.

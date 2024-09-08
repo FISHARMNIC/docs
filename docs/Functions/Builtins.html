@@ -3,12 +3,23 @@
 <ul>
 <li><code>strjoinmany function&lt;u32 number, ...&gt; -&gt; string</code><ul>
 <li>Joins <code>number</code> strings and returns a new dynamic string</li></ul></li>
-<li><code>ftos</code></li>
-<li><code>itos</code></li>
-<li><code>printf</code></li>
-<li><code>print_</code></li>
-<li><code>println_</code></li>
-<li><code>copy</code></li>
+<li><code>ftos function&lt;f32 float&gt; -&gt; string</code><ul>
+<li>Converts <code>float</code> to a new dynamic string and returns it</li></ul></li>
+<li><code>ftos function&lt;u32 number&gt; -&gt; string</code><ul>
+<li>Converts <code>number</code> to a new dynamic string and returns it</li></ul></li>
+<li><code>print_ function&lt;any value&gt; -&gt; none</code><ul>
+<li>!! STILL IN DEVELOPMENT !!</li>
+<li>Automatically prints any type x</li>
+<li>Working:<ul>
+<li><code>string</code></li>
+<li>Any format instace. Calls <code>.toString</code></li></ul></li></ul></li>
+<li><code>println_ function&lt;any value&gt; -&gt; none</code><ul>
+<li>!! STILL IN DEVELOPMENT !!</li>
+<li>Identical to <code>print_</code> but adds new line at the end </li></ul></li>
+<li><code>copy</code><ul>
+<li>See <a href="../Keywords/Copy.html">here</a></li></ul></li>
+<li><code>printf</code><ul>
+<li>Standard c printf</li></ul></li>
 </ul>
 </body>
 <script src="../loadIndex.js"></script>
