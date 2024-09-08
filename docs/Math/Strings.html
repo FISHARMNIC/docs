@@ -1,0 +1,31 @@
+<h1 id="stringmath">String math</h1>
+<hr />
+<p>In HAM', strings can be added together with "+" using the built in <code>strjoinmany</code> function. Any numbers (floats, ints, and pointers) will automatically be converted into strings and added with the string using the built in <code>ftos</code> and <code>itos</code> functions. Any format instance will be attempted to be convert into a string using their toString method. If one doesn't exist, and error will be thrown. </p>
+<pre><code>/* Example format with a "toString" method */
+User format
+{
+    .name string;
+    .ID u32;
+
+    .toString method&lt;&gt; -&gt; {
+        return(this.name + this.ID);
+    }
+}
+
+entry function&lt;&gt; -&gt; u32
+{
+    create me &lt;- User&lt;name:"Nico",ID:123&gt;;
+
+    create awesomePerson &lt;- "Nina";
+    create age &lt;- 123.456;
+
+    create out &lt;- "Hello " + me + " and " + awesomePerson + "! I am " + age + " years old.";
+
+    /* Hello Nico123 and Nina! I am 123.456 years old. */
+    printf("output: %s\n", out);
+
+    return 0;
+}
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>
