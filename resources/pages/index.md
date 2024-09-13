@@ -8,6 +8,7 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
 * [How to install](Examples/HowTo.html)
 * [First program](Examples/Demo.html)
 * [Program Structure](Examples/Structure.html)
+* [Brief explanation on HAM memory management](Dynamics/explanation.html)
 * [Quick Note](Notes.html)
 ## Documentation
 * Arrays
@@ -21,8 +22,8 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
     * [return_new](Keywords/Return_new.html)
 * Keywords
     * [call](Keywords/Call.html)
-    * [persistent](Keywords/Persistent.html)
-    * [transient](Keywords/Transient.html)
+    * [own](Keywords/Own.html)
+    * [borrow](Keywords/Borrow.html)
     * [__rule](Keywords/Rule.html)
     * [__Define](Keywords/Define.html)
     * [import](Keywords/Import.html)

@@ -19,6 +19,8 @@ Person format
 
 `this` can be used inside of methods and constructors as a reference to the instance that is calling it. Modifiying any of the properties of `this` will result in the modification of the instance that called it.
 
+It's important to note that `this` is a dynamic type by default. Do *NOT* assign `this` to another variable without using `borrow` (unless you know what you're doing). If you are confused, it is explained [here](/docs/Dynamics/explanation.md). 
+
 ## Constructors
 
 <section style="padding-left: 100px">

@@ -1,0 +1,20 @@
+<h1 id="keywordborrow">Keyword: <code>borrow</code></h1>
+<hr />
+<p>Borrow can be used using the asignation of a dynamic reference. It forces the data pointer to be copied without ownership being transfered to it.</p>
+<p>The following code is an example method that would be inside a Linked-list format called <code>Linked</code>. The <code>borrow</code> on the third line is needed as <code>this</code> is a dynamic reference that is owned by <code>linkedInstance</code>. If <code>borrow</code> was not used, the ownership would be transfered to <code>reference</code>, and <code>linkedInstance</code> would no longer own the data.</p>
+<pre><code>.findLast method&lt;&gt; -&gt; Linked
+    {
+        create reference &lt;- borrow this;
+        while(reference.next != 0)
+        {
+            reference &lt;- reference.next;
+        }
+        return reference;
+    }
+
+...
+
+create linkedInstance &lt;- Linked(123);
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>

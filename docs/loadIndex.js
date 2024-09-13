@@ -162,6 +162,7 @@
         <a href="/docs/index.html">• index</a>
 <a href="/docs/Notes.html">• Notes</a>
 </details><details><summary>Arrays</summary><a href="/docs/Arrays/Usage.html">• Usage</a>
+</details><details><summary>Dynamics</summary><a href="/docs/Dynamics/explanation.html">• explanation</a>
 </details><details><summary>Examples</summary><a href="/docs/Examples/Demo.html">• Demo</a>
 <a href="/docs/Examples/HowTo.html">• HowTo</a>
 <a href="/docs/Examples/Structure.html">• Structure</a>
@@ -170,13 +171,15 @@
 </details><details><summary>Functions</summary><a href="/docs/Functions/Builtins.html">• Builtins</a>
 <a href="/docs/Functions/Calling.html">• Calling</a>
 <a href="/docs/Functions/Declaring.html">• Declaring</a>
-</details><details><summary>Keywords</summary><a href="/docs/Keywords/Call.html">• Call</a>
+</details><details><summary>Keywords</summary><a href="/docs/Keywords/Borrow.html">• Borrow</a>
+<a href="/docs/Keywords/Call.html">• Call</a>
 <a href="/docs/Keywords/Ccalled.html">• Ccalled</a>
 <a href="/docs/Keywords/Copy.html">• Copy</a>
 <a href="/docs/Keywords/Define.html">• Define</a>
 <a href="/docs/Keywords/Forward.html">• Forward</a>
 <a href="/docs/Keywords/Import.html">• Import</a>
 <a href="/docs/Keywords/Include.html">• Include</a>
+<a href="/docs/Keywords/Own.html">• Own</a>
 <a href="/docs/Keywords/Persistent.html">• Persistent</a>
 <a href="/docs/Keywords/Return_new.html">• Return_new</a>
 <a href="/docs/Keywords/Rule.html">• Rule</a>
