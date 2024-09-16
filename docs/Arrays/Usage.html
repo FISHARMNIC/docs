@@ -3,7 +3,7 @@
 <h2 id="allocation">Allocation</h2>
 <pre><code>{&lt;value1&gt;,&lt;value2&gt;,...};            // Array that takes all types
 &lt;type&gt;{&lt;value1&gt;,&lt;value2&gt;,...};      // Clamped array to certain size
-persistent {&lt;value1&gt;,&lt;value2&gt;,...}; // Force a global array. See keyword persistent
+&lt;type&gt;[&lt;size&gt;]                      // Array of type with certain size
 </code></pre>
 <pre><code>{123,"Hello World!"}                // Allocate array with two elements
 u8{254,255,256}                     // Allocate 8bit array. In this example, the 3rd element will overflow to 0
@@ -11,6 +11,7 @@ u8{254,255,256}                     // Allocate 8bit array. In this example, the
 <h2 id="assignation">Assignation</h2>
 <pre><code>create &lt;name&gt; &lt;- {&lt;value1&gt;,&lt;value2&gt;,...};
 create &lt;name&gt; &lt;- &lt;type&gt;{&lt;value1&gt;,&lt;value2&gt;,...};
+create &lt;name&gt; &lt;- &lt;type&gt;[&lt;size&gt;];
 </code></pre>
 <pre><code>create &lt;name&gt; &lt;pointer type&gt;;                  // Create a pointer 
 ...

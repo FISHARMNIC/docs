@@ -5,7 +5,7 @@
 ```
 {<value1>,<value2>,...};            // Array that takes all types
 <type>{<value1>,<value2>,...};      // Clamped array to certain size
-persistent {<value1>,<value2>,...}; // Force a global array. See keyword persistent
+<type>[<size>]                      // Array of type with certain size
 ```
 ```
 {123,"Hello World!"}                // Allocate array with two elements
@@ -15,6 +15,7 @@ u8{254,255,256}                     // Allocate 8bit array. In this example, the
 ```
 create <name> <- {<value1>,<value2>,...};
 create <name> <- <type>{<value1>,<value2>,...};
+create <name> <- <type>[<size>];
 ```
 ```
 create <name> <pointer type>;                  // Create a pointer 
