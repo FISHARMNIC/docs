@@ -27,9 +27,14 @@ f32: 32-bit float (float)
 ## Special
 
 ```
-string: Same as p8 except allows for special functionality in printing. Default for literals
-any   : !! Still in development !!
-smart : !! Still in development !!
+string   : Same as p8 except allows for special functionality in printing. Can be dynamically allocated
+conststr : Same as str except for string literals
+array    : Same as `p32:dynamic` except quicker notation. Value be allocated dynamically
+array16  : Same as above but `p16:dynamic`
+array8   : Same as above but `p8:dynamic`
+
+any     : Accepts any 32-bit type without warning
+smart   : !! Still in development !!
 ```
 
 ## Formats

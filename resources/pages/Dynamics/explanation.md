@@ -4,7 +4,7 @@
 
 Memory allocation/deallocation is done automatically by HAM. In order to do this, it uses a [garbage collection system](https://github.com/FISHARMNIC/RollCall) (called RollCall) that I designed. Shortly explained, all data that has been allocated via RollCall can only have one owner at a time. If at any point that owner looses its reference, the data is now free to be collected.  
 
-A `dynamic type` is any form of data that has been allocated via RollCall. All Dynamics are supersets of normal types and format types, meaning that you can turn any type into a dynamic. This is done by writing `TYPE:dynamic`, such as `p8:dynamic`.
+A `dynamic type` is any form of data that has been allocated via RollCall. All Dynamics are supersets of normal types and format types, meaning that you can turn any type into a dynamic. This is done by writing `TYPE:dynamic`, such as `p8:dynamic` (also known as the `array8` type). If you want the *elements* of an array to be dynamic, do `TYPE:dynamicChildren`. 
 
 When you do something such as create a new instance of an array or format, that data automatically turned into a dynamic type.
 

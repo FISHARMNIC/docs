@@ -1,6 +1,11 @@
 # Arrays
 
 ---
+## Important
+Any array that is allocated in the global scope is actually a `p8/p16/p32`. It is basically a pointer variant of the type that it assumes.
+
+Arrays allocated *dynamically*, so anywhere inside of a function, are of type `array8/array16/array32` or a dynamic pointer variant of the type that it assumes. 
+
 ## Allocation
 ```
 {<value1>,<value2>,...};            // Array that takes all types
@@ -10,6 +15,7 @@
 ```
 {123,"Hello World!"}                // Allocate array with two elements
 u8{254,255,256}                     // Allocate 8bit array. In this example, the 3rd element will overflow to 0
+u32[10]                             // Allocate 10 ints
 ```
 ## Assignation
 ```

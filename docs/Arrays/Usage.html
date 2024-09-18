@@ -1,5 +1,8 @@
 <h1 id="arrays">Arrays</h1>
 <hr />
+<h2 id="important">Important</h2>
+<p>Any array that is allocated in the global scope is actually a <code>p8/p16/p32</code>. It is basically a pointer variant of the type that it assumes.</p>
+<p>Arrays allocated <em>dynamically</em>, so anywhere inside of a function, are of type <code>array8/array16/array32</code> or a dynamic pointer variant of the type that it assumes. </p>
 <h2 id="allocation">Allocation</h2>
 <pre><code>{&lt;value1&gt;,&lt;value2&gt;,...};            // Array that takes all types
 &lt;type&gt;{&lt;value1&gt;,&lt;value2&gt;,...};      // Clamped array to certain size
@@ -7,6 +10,7 @@
 </code></pre>
 <pre><code>{123,"Hello World!"}                // Allocate array with two elements
 u8{254,255,256}                     // Allocate 8bit array. In this example, the 3rd element will overflow to 0
+u32[10]                             // Allocate 10 ints
 </code></pre>
 <h2 id="assignation">Assignation</h2>
 <pre><code>create &lt;name&gt; &lt;- {&lt;value1&gt;,&lt;value2&gt;,...};
