@@ -27,9 +27,9 @@ f32: 32-bit float (float)
 ## Special
 
 ```
-string   : Same as p8 except allows for special functionality in printing. Can be dynamically allocated
-conststr : Same as str except for string literals
-array    : Same as `p32:dynamic` except quicker notation. Value be allocated dynamically
+conststr : Same as p8 but for string literals. Allows for special functionality in printing
+string   : Same as constr except for dynamically allocated strings
+array    : Same as `p32:dynamic` except quicker notation. Value should be allocated dynamically
 array16  : Same as above but `p16:dynamic`
 array8   : Same as above but `p8:dynamic`
 
