@@ -4,6 +4,13 @@
 
 In HAM', strings can be added together with "+" using the built in `strjoinmany` function. Any numbers (floats, ints, and pointers) will automatically be converted into strings and added with the string using the built in `ftos` and `itos` functions. Any format instance will be attempted to be convert into a string using their toString method. If one doesn't exist, and error will be thrown. 
 
+Additionally, strings can be compared with normal comparison signs, like c++. To compare the string addresses, cast them to pointer types first.
+
+```
+"abc" == "abc" // Value comparison, True
+p8:("bob") == p8:("bob") // Pointer comparison, True
+```
+
 ```
 /* Example format with a "toString" method */
 User format
