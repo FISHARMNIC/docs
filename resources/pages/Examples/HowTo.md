@@ -20,8 +20,10 @@
 ## Running (no graphics)
 * MacOS
     * Enter Lima shell
+    * If running for first time, run `./scripts/BUILD.sh`
     * Run `./scripts/assemble.sh`
 * Linux
+    * If running for first time, run `./scripts/BUILD.sh`
     * Run `./scripts/assemble.sh`
 
 ## Running (with graphics)
