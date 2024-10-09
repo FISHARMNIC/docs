@@ -6,6 +6,11 @@
 <li>If on MacOS<ul>
 <li>LimaVM</li>
 <li>XQuartz (only if you are planning to use the graphics library)</li></ul></li>
+<li>gcc multilib (<code>sudo apt-get install gcc-multilib</code>)</li>
+<li>gmp (needed if using bignums) (<code>sudo apt-get install libgmp3-dev</code>)</li>
+<li>32bit x11 (needed if using graphics)<ul>
+<li><code>dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install libx11-dev:i386</code></li></ul></li>
+<li><em>Note: if on mac, these should be installed in Lima, otherwise just install these normally</em></li>
 </ul>
 <h2 id="installing">Installing</h2>
 <ul>
