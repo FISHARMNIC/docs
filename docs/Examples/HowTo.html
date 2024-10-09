@@ -10,38 +10,33 @@
 <li>gmp (needed if using bignums) (<code>sudo apt-get install libgmp3-dev</code>)</li>
 <li>32bit x11 (needed if using graphics)<ul>
 <li><code>dpkg --add-architecture i386; sudo apt-get update; sudo apt-get install libx11-dev:i386</code></li></ul></li>
-<li><em>Note: if on mac, these should be installed in Lima, otherwise just install these normally</em></li>
+<li><em>Note: if on mac, these should be installed in Lima. otherwise just install these normally</em></li>
 </ul>
 <h2 id="installing">Installing</h2>
 <ul>
 <li>Clone <a href="https://github.com/FISHARMNIC/HAMprimeC2/tree/main">this</a> repository</li>
+<li>run <code>./compiler/scripts/BUILD.sh</code></li>
 </ul>
 <h2 id="compiling">Compiling</h2>
 <ul>
 <li>Cd into <code>compiler</code></li>
 <li>Run <code>node main.js &lt;file name in test/working directory&gt;</code><ul>
 <li>For example: <code>node main.js arrays.x</code></li>
-<li>This creates an assembly file in <code>compiled/out.s</code></li></ul></li>
+<li>This creates an assembly file in <code>../compiled/out.s</code></li></ul></li>
 </ul>
 <h2 id="runningnographics">Running (no graphics)</h2>
 <ul>
-<li>MacOS<ul>
-<li>Enter Lima shell</li>
-<li>If running for first time, run <code>./scripts/BUILD.sh</code></li>
-<li>Run <code>./scripts/assemble.sh</code></li></ul></li>
-<li>Linux<ul>
-<li>If running for first time, run <code>./scripts/BUILD.sh</code></li>
-<li>Run <code>./scripts/assemble.sh</code></li></ul></li>
+<li>if MacOS, enter Lima shell</li>
+<li>Cd into <code>compiler</code></li>
+<li>Run <code>./scripts/assemble.sh</code></li>
 </ul>
 <h2 id="runningwithgraphics">Running (with graphics)</h2>
 <ul>
-<li>Compile graphics library (one time only)<ul>
-<li>Run <code>./libs/gfx/compile.sh</code></li>
-<li>If on MacOS, make suret do this in the Lima shell</li></ul></li>
+<li>Cd to <code>compiler</code></li>
 <li>MacOS<ul>
 <li>Run <code>./scripts/lima_x11.sh</code></li></ul></li>
 <li>Linux<ul>
-<li>Run <code>.compiler/scripts/internal/assemble_x11.sh</code></li></ul></li>
+<li>Run <code>./scripts/internal/assemble_x11.sh</code></li></ul></li>
 </ul>
 </body>
 <script src="../loadIndex.js"></script>
