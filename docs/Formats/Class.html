@@ -38,16 +38,40 @@
 After a constructor is created, you can still create an instance by using the normal way of instancing formats. Any format instance using the structure instance has no different properties than that of one using the class instance. This means that if an instance was created using the structure instance, you can still use all of the same methods.
 </section>
 <h2 id="methods">Methods</h2>
-<pre><code>.&lt;name&gt; method&lt;&lt;arguments&gt;&gt; -&gt; &lt;return&gt; 
+<section style="padding-left: 100px"><pre><code>.&lt;name&gt; method&lt;&lt;arguments&gt;&gt; -&gt; &lt;return&gt; 
 {
     // ...
 }
-</code></pre>
-<pre><code>.print method&lt;&gt; -&gt; u32 
+</code></pre><pre><code>.toString method&lt;&gt; -&gt; string 
 {
-    printf("Hello! My name is %s and I am %i years old.", this.name, this.age);
+    create out &lt;- "Hello! My name is " + this.name + " and I am " + this.age + " years old.";
+    return out;
 }
 </code></pre>
+</section>
+<h3 id="specialmethods">Special Methods</h3>
+<p>The only availible special method so far is <code>toString</code>, which is automatically called when using <code>print_</code> </p>
+<h2 id="operatoroverloads">Operator overloads</h2>
+<section style="padding-left: 100px">
+Overloads can be used to modify how different operators work. The current supported operators are:  
+| NAME      | REPLACES              |  
+|-----------|-----------------------|  
+| add       | : (instance + a)      |
+| sub       | : (instance - a)      |
+| mul       | : (instance * a)      |
+| div       | : (instance / a)      |
+| index_set | : (instance[a] <- b;) |
+| index_get | : (instance[a])       |  
+<pre><code>.&lt;format&gt; operator(&lt;name&gt;)&lt;&lt;type&gt;&lt;a&gt;,(only for index_set):&lt;type&gt;&lt;a&gt;&gt; -&gt; &lt;return&gt;
+{
+    ...
+}
+</code></pre><pre><code>.Person operator(add)&lt;u32 num&gt; -&gt; u32
+{
+    return(this.age + num);
+}
+</code></pre>
+</section>
 <h2 id="finalexample">Final example</h2>
 <pre><code>Person format
 {
@@ -60,9 +84,15 @@ After a constructor is created, you can still create an instance by using the no
         this.name &lt;- inName;
     }
 
-    .print method&lt;&gt; -&gt; u32 
+    .toString method&lt;&gt; -&gt; string 
     {
-        printf("Hello! My name is %s and I am %i years old.", this.name, this.age);
+        create out &lt;- "Hello! My name is " + this.name + " and I am " + this.age + " years old.";
+        return out;
+    }
+
+    .Person operator(add)&lt;u32 num&gt; -&gt; u32
+    {
+        return(this.age + num);
     }
 }
 
@@ -72,12 +102,18 @@ entry function&lt;&gt; -&gt; u32
     The following two lines produce an identical format instance in terms of their inner workings. 
     (Their values are different though)
     */
-    create me &lt;- Person(17, "Nico");                  /* Class instance */
-    create awsomePerson&lt;- Person&lt;age:17, name:"Nina"&gt; /* Structure instance */
+    create me &lt;- Person(18, "Nico");           /* Class instance */
+    create dad &lt;- Person&lt;age:60, name:"Dad"&gt;;  /* Structure instance */
 
     /* This means that methods can be called from both */
-    me.print();
-    awesomePerson.print();
+    print_(me);
+    print_(dad);
+
+    /* Overloading "+"
+        Note that if joining with a string, it will call toString instead
+        So in this, there is parenthesis around the statement to ensure that it adds the number first
+    */
+    print_("I will be " + (me + 1) + " years old in 1 year.");
 }
 </code></pre>
 </body>

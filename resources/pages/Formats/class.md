@@ -56,6 +56,7 @@ After a constructor is created, you can still create an instance by using the no
 </section>
 
 ## Methods
+<section style="padding-left: 100px">
 ```
 .<name> method<<arguments>> -> <return> 
 {
@@ -63,11 +64,44 @@ After a constructor is created, you can still create an instance by using the no
 }
 ```
 ```
-.print method<> -> u32 
+.toString method<> -> string 
 {
-    printf("Hello! My name is %s and I am %i years old.", this.name, this.age);
+    create out <- "Hello! My name is " + this.name + " and I am " + this.age + " years old.";
+    return out;
 }
 ```
+</section>
+
+### Special Methods
+The only availible special method so far is `toString`, which is automatically called when using `print_` 
+
+
+## Operator overloads
+<section style="padding-left: 100px">
+Overloads can be used to modify how different operators work. The current supported operators are:  
+| NAME      | REPLACES              |  
+|-----------|-----------------------|  
+| add       | : (instance + a)      |
+| sub       | : (instance - a)      |
+| mul       | : (instance * a)      |
+| div       | : (instance / a)      |
+| index_set | : (instance[a] <- b;) |
+| index_get | : (instance[a])       |  
+  
+```
+.<format> operator(<name>)<<type><a>,(only for index_set):<type><a>> -> <return>
+{
+    ...
+}
+```
+```
+.Person operator(add)<u32 num> -> u32
+{
+    return(this.age + num);
+}
+```
+</section>
+
 ## Final example
 ```
 Person format
@@ -81,9 +115,15 @@ Person format
         this.name <- inName;
     }
 
-    .print method<> -> u32 
+    .toString method<> -> string 
     {
-        printf("Hello! My name is %s and I am %i years old.", this.name, this.age);
+        create out <- "Hello! My name is " + this.name + " and I am " + this.age + " years old.";
+        return out;
+    }
+    
+    .Person operator(add)<u32 num> -> u32
+    {
+        return(this.age + num);
     }
 }
 
@@ -93,11 +133,17 @@ entry function<> -> u32
     The following two lines produce an identical format instance in terms of their inner workings. 
     (Their values are different though)
     */
-    create me <- Person(17, "Nico");                  /* Class instance */
-    create awsomePerson<- Person<age:17, name:"Nina"> /* Structure instance */
+    create me <- Person(18, "Nico");           /* Class instance */
+    create dad <- Person<age:60, name:"Dad">;  /* Structure instance */
 
     /* This means that methods can be called from both */
-    me.print();
-    awesomePerson.print();
+    print_(me);
+    print_(dad);
+
+    /* Overloading "+"
+        Note that if joining with a string, it will call toString instead
+        So in this, there is parenthesis around the statement to ensure that it adds the number first
+    */
+    print_("I will be " + (me + 1) + " years old in 1 year.");
 }
 ```

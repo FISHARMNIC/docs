@@ -21,7 +21,7 @@ const fse = require('fs-extra')
 const showdown = require("showdown")
 const path = require('path')
 
-var converter = new showdown.Converter()
+var converter = new showdown.Converter({tables: true})
 showdown.setFlavor('github')
 showdown.setOption('ghCodeBlocks', true)
 
