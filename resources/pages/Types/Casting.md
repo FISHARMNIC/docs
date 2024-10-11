@@ -15,3 +15,10 @@ Values can also be casted to a format type and then used as such
 create jon <- Person:(<some pointer>);
 printf("%i\n", jon.age);
 ```
+
+## Autocasting
+Autocasting converts types automatically to reduce confusion
+
+Autocasting is done from conststr to string in these scenarios:
+    - Creating and assigning a variable to a conststr
+    - Passing a conststr to a function expecting a string

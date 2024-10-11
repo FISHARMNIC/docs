@@ -23,6 +23,12 @@ array8   : Same as above but `p8:dynamic`
 any     : Accepts any 32-bit type without warning
 smart   : !! Still in development !!
 </code></pre>
+<h2 id="typeannexes">Type annexes</h2>
+<p>Types can be annexed with a colon to provide further information about the type. The currently supported annexes are as follows</p>
+<pre><code>type:borrowed : Converts a dynamic type to a static, removes the need for memory borrowing
+type:array    : Converts a type to a dynamic. If the type is already dynamic, it makes the elements dynamic
+type:dynamic  : Similar to type array, but doesn't convert type to pointer
+</code></pre>
 <h2 id="formats">Formats</h2>
 <p>After declaring a format, the name of the format can now be used as a regular type. See <code>formats</code>.</p>
 </body>

@@ -6,7 +6,7 @@ In order to call a function, the compiler needs to acknowledge it's existence. T
 * The function is pre-defined in the compiler
 * The function has been declared and compiled
 * The function has been defined in a forward declaration  
-<br><br>
+<br>
 
 If none of these are true however, a function can still be called via a pointer. This pointer can be a direct memory address, a variable, etc. In order to do so, before the function call, you must write `call`. You can also provide a return type (optional) by adding a type after the word `call`.
 ```
