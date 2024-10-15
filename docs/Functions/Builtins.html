@@ -1,25 +1,88 @@
 <h1 id="builtinfunctions">Built in Functions</h1>
 <hr />
+<h1 id="stringoperations">String operations</h1>
 <ul>
 <li><code>strjoinmany function&lt;u32 number, ...&gt; -&gt; string</code><ul>
-<li>Joins <code>number</code> strings and returns a new dynamic string</li></ul></li>
+<li>Joins <code>number</code> strings and returns a new dynamic string</li>
+<li>Called internally when adding strings</li></ul></li>
 <li><code>ftos function&lt;f32 float&gt; -&gt; string</code><ul>
-<li>Converts <code>float</code> to a new dynamic string and returns it</li></ul></li>
-<li><code>ftos function&lt;u32 number&gt; -&gt; string</code><ul>
-<li>Converts <code>number</code> to a new dynamic string and returns it</li></ul></li>
-<li><code>print_ function&lt;any value&gt; -&gt; none</code><ul>
-<li>!! STILL IN DEVELOPMENT !!</li>
+<li>Converts <code>float</code> to a new dynamic string and returns it</li>
+<li>Called internally when adding float to string</li></ul></li>
+<li><code>itos function&lt;u32 number&gt; -&gt; string</code><ul>
+<li>Converts <code>number</code> to a new dynamic string and returns it</li>
+<li>Called internally when adding an integer to a string</li></ul></li>
+<li><code>cptos function&lt;conststr str&gt; -&gt; string</code><ul>
+<li>Converts <code>str</code> to a new dynamic string and returns it</li>
+<li>Called internally when autocasting is needed</li></ul></li>
+</ul>
+<h1 id="memoryoperations">Memory operations</h1>
+<ul>
+<li><code>__copydata__ function&lt;any:dynamic dest, any:dynamic src&gt; -&gt; p32:dynamic</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Copies bytes from <code>src</code> to <code>dest</code><ul>
+<li>Both <code>dest</code> and <code>src</code> <strong>must</strong> be dynamics</li>
+<li>Number of bytes copied is determined by the size of the <em>smaller</em> buffer</li></ul></li>
+<li>Used internally by <code>copy</code> keyword</li></ul></li>
+<li><code>__duplicate__ function&lt;any:dynamic src&gt;, -&gt; p32:dynamic</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Duplicates the dynamic buffer in <code>src</code> and returns the new memory address</li>
+<li>Used internally by <code>duplicate</code></li></ul></li>
+<li><code>__rc_allocate__ function&lt;u32 bytes, u32 restricted&gt; -&gt; p32:dynamic</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Allocates data of size <code>bytes</code> and sets its tranferability to <code>restricted</code><ul>
+<li>if <code>restricted</code> is 0, the data can transfer its owner</li>
+<li>Otherwise, if ownership transfer is attempted, the program will exit with an error message</li></ul></li>
+<li>Used internally by any data allocation (strings, arrays, formats)</li></ul></li>
+<li><code>__rc_requestOwnership__ function&lt;p32 value, p32 dest&gt; -&gt; none</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Assigns ownership of the data pointed at by <code>value</code> to the buffer pointed at by <code>dest</code></li>
+<li><code>dest</code> must be the memory address of a dynamic</li></ul></li>
+<li><code>__rc_collect__ function&lt;&gt; -&gt; u32 # none</code><ul>
+<li>Manually triggers garbage collector</li>
+<li>Used internally by <code>__rc_quick_check__</code> (below)</li></ul></li>
+<li><code>__rc_quick_check__ function&lt;&gt; -&gt; none</code><ul>
+<li>Checks if garbage collection should be triggered depending on the current number of allocated bytes</li>
+<li>Used intenally at the end of each function</li></ul></li>
+</ul>
+<h1 id="io">I/O</h1>
+<ul>
+<li><code>print_ function function&lt;any value&gt; -&gt; none</code><ul>
+<li>Not an actual function, more of a keyword</li>
 <li>Automatically prints any type x</li>
 <li>Working:<ul>
 <li><code>string</code></li>
-<li>Any format instace. Calls <code>.toString</code></li></ul></li></ul></li>
-<li><code>println_ function&lt;any value&gt; -&gt; none</code><ul>
-<li>!! STILL IN DEVELOPMENT !!</li>
-<li>Identical to <code>print_</code> but adds new line at the end </li></ul></li>
-<li><code>copy</code><ul>
-<li>See <a href="../Keywords/Copy.html">here</a></li></ul></li>
+<li>Any format instace. Calls <code>.toString</code></li>
+<li>Floats</li>
+<li>Arrays</li>
+<li><em>Integers are currently broken</em></li></ul></li></ul></li>
 <li><code>printf</code><ul>
 <li>Standard c printf</li></ul></li>
+<li><code>print_arr32 function&lt;u32 size, p32 array&gt; -&gt; none</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Prints the array <code>array</code> of size <code>size / 4</code><ul>
+<li><strong>Note that size is in BYTES not number of elements</strong></li></ul></li>
+<li>Called internally by <code>print_</code></li></ul></li>
+<li><code>print_arr16 function&lt;u32 size, p16 array&gt; -&gt; none</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Prints the array <code>array</code> of size <code>size / 2</code><ul>
+<li><strong>Note that size is in BYTES not number of elements</strong></li></ul></li>
+<li>Called internally by <code>print_</code></li></ul></li>
+<li><code>print_arr32 function&lt;u32 size, p8 array&gt; -&gt; none</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Prints the array <code>array</code> of size <code>size</code></li>
+<li>Called internally by <code>print_</code></li></ul></li>
+<li><code>print_float_noPromo function&lt;f32 float&gt; -&gt; none</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li>Prints a float (without dealing with the whole C variadic double promotion mess)<ul>
+<li>Note, you don't need to use this. HAM' automatically circumvents this issue in <code>printf</code></li></ul></li>
+<li>Called internally by <code>print_</code></li></ul></li>
+<li><code>print_formatArr function&lt;any toStringFn, u32 size, p32 arr&gt; -&gt; none</code><ul>
+<li><em>Have to declare prototype to use this</em></li>
+<li><strong>This function does not currently work</strong></li>
+<li>Prints an array of formats, where:<ul>
+<li><code>toStringFn</code> is the address of the formats <code>.toString()</code> method</li>
+<li><code>size / 4</code> is the size of the array</li>
+<li><code>arr</code> is the array of formats</li></ul></li></ul></li>
 </ul>
 </body>
 <script src="../loadIndex.js"></script>
