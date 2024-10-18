@@ -6,7 +6,7 @@ Memory allocation/deallocation is done automatically by HAM. In order to do this
 
 A `dynamic type` is any form of data that has been allocated via RollCall. All Dynamics are supersets of normal types and format types, meaning that you can turn any type into a dynamic. This is done by writing `TYPE:dynamic` or `TYPE:array`, such as `p8:dynamic` (also known as the `array8` type). Depending on `TYPE`, if it's already dynamic, doing `TPYE:array` will make its elements dynamic. If you want a dynamic to be static, use `TYPE:borrowed`.
 
-The difference between `TYPE:dynamic` and `TPYE:array` is that they latter will turn that type into a pointer.
+The difference between `TYPE:dynamic` and `TPYE:array` is that the first one will convert that type to a pointer, and the second convert it to an array of that type.
 
 When you do something such as create a new instance of an array or format, that data automatically turned into a dynamic type.
 
