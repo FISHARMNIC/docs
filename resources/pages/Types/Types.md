@@ -40,9 +40,10 @@ smart   : !! Still in development !!
 ## Type annexes
 Types can be annexed with a colon to provide further information about the type. The currently supported annexes are as follows
 ```
-type:borrowed : Converts a dynamic type to a static, removes the need for memory borrowing
-type:array    : Converts a type to a dynamic. If the type is already dynamic, it makes the elements dynamic
-type:dynamic  : Similar to type array, but doesn't convert type to pointer
+type:borrowed  : Converts a dynamic type to a static, removes the need for memory borrowing
+type:array     : Converts a type to a dynamic. If the type is already dynamic, it makes the elements dynamic
+type:dynamic   : Similar to type array, but doesn't convert type to pointer
+type:reference : Similar to c++ pass by reference, allows for modifying string params etc.
 ```
 
 ## Formats
