@@ -86,8 +86,10 @@ Overloads can be used to modify how different operators work. The current suppor
 | mul       | : (instance * a)      |
 | div       | : (instance / a)      |
 | index_set | : (instance[a] <- b;) |
-| index_get | : (instance[a])       |  
-  
+| index_get | : (instance[a])       | 
+| shl       | : (instance << a)     |
+| shr       | : (instance >> a)     |
+
 ```
 .<format> operator(<name>)<<type><a>,(only for index_set):<type><a>> -> <return>
 {
