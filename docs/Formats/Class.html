@@ -61,8 +61,10 @@ Overloads can be used to modify how different operators work. The current suppor
 | mul       | : (instance * a)      |
 | div       | : (instance / a)      |
 | index_set | : (instance[a] <- b;) |
-| index_get | : (instance[a])       |  
-<pre><code>.&lt;format&gt; operator(&lt;name&gt;)&lt;&lt;type&gt;&lt;a&gt;,(only for index_set):&lt;type&gt;&lt;a&gt;&gt; -&gt; &lt;return&gt;
+| index_get | : (instance[a])       | 
+| shl       | : (instance << a)     |
+| shr       | : (instance >> a)     |
+<pre><code>.&lt;format&gt; operator(&lt;name&gt;)&lt;&lt;type&gt;&lt;a&gt;,(only for index_set)&lt;type&gt;&lt;b&gt;&gt; -&gt; &lt;return&gt;
 {
     ...
 }
@@ -72,6 +74,18 @@ Overloads can be used to modify how different operators work. The current suppor
 }
 </code></pre>
 </section>
+<h2 id="declaringformatsfromdifferentfiles">Declaring formats from different files</h2>
+<p>To do a forward declaration, add <code>forward</code> before every method, operator, and constructor. Do not add <code>forward</code> to properties</p>
+<pre><code>Something format
+{
+    .propA u32;
+    .propB string;
+
+    forward .Person constructor&lt;&gt;;
+    forward .toString method&lt;&gt; -&gt; string;
+    // etc.
+}
+</code></pre>
 <h2 id="finalexample">Final example</h2>
 <pre><code>Person format
 {
