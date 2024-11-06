@@ -91,7 +91,7 @@ Overloads can be used to modify how different operators work. The current suppor
 | shr       | : (instance >> a)     |
 
 ```
-.<format> operator(<name>)<<type><a>,(only for index_set):<type><a>> -> <return>
+.<format> operator(<name>)<<type><a>,(only for index_set)<type><b>> -> <return>
 {
     ...
 }
@@ -103,6 +103,20 @@ Overloads can be used to modify how different operators work. The current suppor
 }
 ```
 </section>
+
+## Declaring formats from different files
+To do a forward declaration, add `forward` before every method, operator, and constructor. Do not add `forward` to properties
+```
+Something format
+{
+    .propA u32;
+    .propB string;
+
+    forward .Person constructor<>;
+    forward .toString method<> -> string;
+    // etc.
+}
+```
 
 ## Final example
 ```
