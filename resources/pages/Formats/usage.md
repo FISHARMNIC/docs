@@ -16,6 +16,20 @@ Person format {                                // Create a new format named "Per
     .age u32;                                  // Create a new property "age" as a u32
 }
 ```
+Note that types do not have to be specified. If no type is given, it will assume the first type that is given to it (see classes if you are confused on the example below)
+```
+Person format
+{
+    .name;
+    .age;
+
+    .Person constructor<string n, u32 age> -> u32
+    {
+        this.name <- n; /* set "name" to be a string */
+        this.age <-  age; /* set "age" to be a u32 */
+    }
+}
+```
 ## Instancing
 ```
 <name><<property>:<value>,<property>:<value>>  // Note: the second "<>" should be written

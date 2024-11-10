@@ -12,6 +12,19 @@
     .age u32;                                  // Create a new property "age" as a u32
 }
 </code></pre>
+<p>Note that types do not have to be specified. If no type is given, it will assume the first type that is given to it (see classes if you are confused on the example below)</p>
+<pre><code>Person format
+{
+    .name;
+    .age;
+
+    .Person constructor&lt;string n, u32 age&gt; -&gt; u32
+    {
+        this.name &lt;- n; /* set "name" to be a string */
+        this.age &lt;-  age; /* set "age" to be a u32 */
+    }
+}
+</code></pre>
 <h2 id="instancing">Instancing</h2>
 <pre><code>&lt;name&gt;&lt;&lt;property&gt;:&lt;value&gt;,&lt;property&gt;:&lt;value&gt;&gt;  // Note: the second "&lt;&gt;" should be written
 </code></pre>
