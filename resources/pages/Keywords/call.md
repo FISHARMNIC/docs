@@ -20,9 +20,9 @@ forEach function<p32 arr, u32 size, p32 iterator> -> u32 {
         {
             /* 
              * Call the iterator and read its return as a u32 
-             * The u32 can be taken out, this is just to show
+             * The "-> u32" can be taken out, this is just to show
             */
-            call u32 iterator(arr[i]);
+            call iterator(arr[i]) -> u32;
             i <- (i + 1);
         }
         return 0;
