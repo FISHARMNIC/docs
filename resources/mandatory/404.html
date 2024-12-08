@@ -8,6 +8,19 @@
 
 <body>
     <script>
+
+        let readyToLoad = false;
+
+        async function waitForVariable() {
+            while (!readyToLoad) {
+                await new Promise(resolve => setTimeout(resolve, 10));
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            await waitForVariable()
+        });
+
         if (window.location.pathname.split("/").at(-1) == "__raw") {
             var actualPage = window.location.href
             var loader = actualPage.slice(0, actualPage.lastIndexOf("/"))
@@ -15,9 +28,8 @@
             fetch(loader)
                 .then(res => res.text())
                 .then(text => {
-                    test = text.replace("<script", "<!--") + "-->"
-                    console.log(text)
                     document.write(text)
+                    readyToLoad = true;
                 })
                 .catch(err => console.log(err));
 
@@ -25,8 +37,7 @@
             // const doc = new DOMParser().parseFromString(html, 'text/html');
             // doc.title; doc.body;
         }
-        else
-        {
+        else {
             document.write("unknown")
         }
     </script>
