@@ -10,9 +10,17 @@
     <script>
         if (window.location.pathname.split("/").at(-1) == "__raw") {
             var actualPage = window.location.href
-            const html = (await(await fetch(actualPage.slice(0, actualPage.lastIndexOf("/")))).text()); // html as text
-            const doc = new DOMParser().parseFromString(html, 'text/html');
-            doc.title; doc.body;
+
+            fetch(actualPage.slice(0, actualPage.lastIndexOf("/")))
+                .then(res => res.text())
+                .then(text => {
+                    console.log(text);
+                })
+                .catch(err => console.log(err));
+
+            // const html = (await(await fetch()).text()); // html as text
+            // const doc = new DOMParser().parseFromString(html, 'text/html');
+            // doc.title; doc.body;
         }
     </script>
 </body>
