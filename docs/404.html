@@ -10,8 +10,9 @@
     <script>
         if (window.location.pathname.split("/").at(-1) == "__raw") {
             var actualPage = window.location.href
-
-            fetch(actualPage.slice(0, actualPage.lastIndexOf("/")))
+            var loader = actualPage.slice(0, actualPage.lastIndexOf("/"))
+            console.log("loading", loader)
+            fetch(loader)
                 .then(res => res.text())
                 .then(text => {
                     console.log(text);
