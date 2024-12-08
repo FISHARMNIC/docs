@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script>
+        if (window.location.pathname.split("/").at(-1) == "__raw") {
+            var actualPage = window.location.href
+            const html = (await(await fetch(actualPage.slice(0, actualPage.lastIndexOf("/")))).text()); // html as text
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            doc.title; doc.body;
+        }
+    </script>
+</body>
+
+</html>

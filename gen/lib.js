@@ -34,7 +34,7 @@ r.code = function (code, language) {
 const rootPath = __dirname + "/.."
 var allPages = []
 
-const pagesFrom = function (directory, template, useLinks = true) {
+const pagesFrom = function (directory, template, landingpage404, useLinks = true) {
     //var allInDir = fs.readdirSync(directory)
     fse.emptyDirSync(rootPath + "/docs")
 
@@ -108,6 +108,7 @@ const pagesFrom = function (directory, template, useLinks = true) {
     
 
         fse.outputFileSync(`${rootPath}/docs/template.html`, read)
+        fse.outputFileSync(`${rootPath}/docs/404.html`, String(fs.readFileSync(landingpage404)))
         fse.outputFileSync(rootPath + "/docs/loadIndex.js",
             `
     window.addEventListener('load', function () {
