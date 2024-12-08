@@ -15,8 +15,8 @@
             fetch(loader)
                 .then(res => res.text())
                 .then(text => {
-                    text.replaceAll("<script", "<!--<script")
-                    text.replaceAll("</script>", "</script>-->")
+                    text.replaceAll(`<script`, `<!--<script`)
+                    text.replaceAll(`</script>`, `</script>-->`)
                     document.write(text)
                 })
                 .catch(err => console.log(err));
