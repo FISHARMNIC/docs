@@ -9,10 +9,17 @@
 <pre><code>create jon &lt;- Person:(&lt;some pointer&gt;);
 printf("%i\n", jon.age);
 </code></pre>
+<h2 id="typeannexes">Type Annexes</h2>
+<p>Type annexes also work on casts</p>
+<pre><code>something(SomeType:borrowed:(bob));
+</code></pre>
 <h2 id="autocasting">Autocasting</h2>
 <p>Autocasting converts types automatically to reduce confusion</p>
-<p>Autocasting is done from conststr to string in these scenarios:
-    - Creating and assigning a variable to a conststr
-    - Passing a conststr to a function expecting a string</p>
+<p>Autocasting is done from conststr to string in these scenarios:</p>
+<ul>
+<li>Creating and assigning a variable to a conststr</li>
+<li>Passing a conststr to a function expecting a string</li>
+<li>Creating a conststr array</li>
+</ul>
 </body>
 <script src="../loadIndex.js"></script>

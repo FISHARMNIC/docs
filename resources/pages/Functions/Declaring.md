@@ -4,13 +4,18 @@
 
 ## Declaration
 ```
-<name> function<<type> <parameter>, <type> <parameter>> -> <return>
+<name> function<<type> <parameter>, <type> <parameter>> -> <return> (optional)
 {
 
 }
 ```
 ```
 myFunction function<u32 a, u32 b> -> u16
+{
+    // ... code
+}
+
+otherFunction function<u32 a, u32 b>
 {
     // ... code
 }

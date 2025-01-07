@@ -19,7 +19,8 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
 * Functions
     * [Declaring](Functions/Declaring.html)
     * [Calling](Functions/Calling.html)
-    * [return_new](Keywords/Return_new.html)
+    * [Lambdas](Functions/Lambdas.html)
+    * [Overloads](Functions/Overloads.html)
 * Keywords
     * [call](Keywords/Call.html)
     * [own](Keywords/Own.html)
@@ -34,7 +35,9 @@ This documentation is still a large WIP. Currently, I am focusing more on the de
     * [return_new](Keywords/Return_new.html)
 * Libraries
     * [Graphics](Libraries/Graphics.html)
-    * [Bignums](Libraries/Bignums.html)
+    * [Queues](Libraries/Queues.html)
+    * [Lists](Libraries/Lists.html)
+    * [Linked Lists](Libraries/LinkedLists.html)
 * Math
     * [Usage](Math/Math.html)
     * [Strings](Math/Strings.html)

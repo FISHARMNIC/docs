@@ -4,7 +4,16 @@
 ## Important
 Any array that is allocated in the global scope is actually a `p8/p16/p32`. It is basically a pointer variant of the type that it assumes.
 
-Arrays allocated *dynamically*, so anywhere inside of a function, are of type `array8/array16/array32` or a dynamic pointer variant of the type that it assumes. 
+Currently, global arrays are broken and might not work depending on your use. So for now, if you want a global array, declare a typed variable globally and then allocate data for it in the entry function
+
+```
+create string:array bob;
+
+entry function<>
+{
+    bob <- {"hello", "world"};
+}
+```
 
 ## Allocation
 ```
@@ -67,4 +76,3 @@ bat[4][%1 3]                      // Get the 3rd item of the 4th item of "bat" a
 ## Technical details
 * Clamped arrays are not aligned to 4bytes. They are identical to C arrays
 * All arrays declared in the global scope, are allocated in the data section
-* Arrays allocated inside of a function or any other scope are placed on the stack (unless specified by `persistent`)

@@ -33,9 +33,19 @@ array    : Same as `p32:dynamic` except quicker notation. Value should be alloca
 array16  : Same as above but `p16:dynamic`
 array8   : Same as above but `p8:dynamic`
 
-any     : Accepts any 32-bit type without warning
-smart   : !! Still in development !!
+fn       : For function types. Can be called from without the `call` keyword
+
+any      : Accepts any 32-bit STATIC type without warning. Can also be called from without `call`
+dyna     : Similar to `any` but for dynamic types
+
+auto     : Assumes its type on first set. Default for untyped uninitiated variables, returns, and properties
+           ** `auto` cannot be used for parameters **
+unknown  : Same as `auto`
 ```
+
+## Notice on "any"
+
+The `any` type is actually more of a loose `u32`. So it should not be used for doing things such as adding, since if you pass two floats to the function it might give you the wrong answer (you can use [supportive overloads](/docs/Functions/Overloads.html) for this instead). Its more meant for for a case where you aren't doing any operation on the value. Similar is true for `dyna`
 
 ## Type annexes
 Types can be annexed with a colon to provide further information about the type. The currently supported annexes are as follows

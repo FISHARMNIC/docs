@@ -2,7 +2,14 @@
 <hr />
 <h2 id="important">Important</h2>
 <p>Any array that is allocated in the global scope is actually a <code>p8/p16/p32</code>. It is basically a pointer variant of the type that it assumes.</p>
-<p>Arrays allocated <em>dynamically</em>, so anywhere inside of a function, are of type <code>array8/array16/array32</code> or a dynamic pointer variant of the type that it assumes. </p>
+<p>Currently, global arrays are broken and might not work depending on your use. So for now, if you want a global array, declare a typed variable globally and then allocate data for it in the entry function</p>
+<pre><code>create string:array bob;
+
+entry function&lt;&gt;
+{
+    bob &lt;- {"hello", "world"};
+}
+</code></pre>
 <h2 id="allocation">Allocation</h2>
 <pre><code>{&lt;value1&gt;,&lt;value2&gt;,...};            // Array that takes all types
 &lt;type&gt;{&lt;value1&gt;,&lt;value2&gt;,...};      // Clamped array to certain size
@@ -47,7 +54,6 @@ bat &lt;- u32{1,2,3};                             // Assign the array to "bat"
 <ul>
 <li>Clamped arrays are not aligned to 4bytes. They are identical to C arrays</li>
 <li>All arrays declared in the global scope, are allocated in the data section</li>
-<li>Arrays allocated inside of a function or any other scope are placed on the stack (unless specified by <code>persistent</code>)</li>
 </ul>
 </body>
 <script src="../loadIndex.js"></script>

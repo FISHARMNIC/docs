@@ -1,0 +1,45 @@
+<h1 id="lambdafunctions">Lambda Functions</h1>
+<hr />
+<h2 id="declaration">Declaration</h2>
+<pre><code>lambda&lt;params&gt; -&gt; &lt;return&gt; (optional)
+{
+    ...
+}
+</code></pre>
+<h2 id="calling">Calling</h2>
+<p>Lambdas can be called in several ways</p>
+<ul>
+<li>Assigning a lambda to a variable then calling it</li>
+<li>Passing it to a function</li>
+</ul>
+<p>If you wish, you can specify a return type when you call it by using the arrow notation</p>
+<pre><code>create someFunc &lt;- lambda&lt;&gt; {print_("hello!");};
+someFunc();
+
+create otherFunc &lt;- lambda&lt;u32 a&gt; {
+    return(a * 10);
+}
+
+print_(otherFunc() -&gt; u32);
+</code></pre>
+<h2 id="captures">Captures</h2>
+<p>Lambdas capture all availible variables by reference (except <code>this</code>) at the location where they are written</p>
+<pre><code>doSomething function&lt;fn func&gt;
+{
+    func(123);
+}
+
+entry function&lt;&gt;
+{
+    create a &lt;- 10;
+    doSomething(
+        lambda&lt;u32 b&gt;
+        {
+            a &lt;- a + b;
+        }
+    )
+    print_(a); // should be 123 + 10 = 133
+}
+</code></pre>
+</body>
+<script src="../loadIndex.js"></script>

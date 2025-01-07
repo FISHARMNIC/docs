@@ -1,0 +1,25 @@
+<h1 id="functionoverloads">Function overloads</h1>
+<hr />
+<p>Currently, function overloads are only supported on functions, constructors, and operators, but NOT methods. </p>
+<h2 id="supportiveoverloads">Supportive overloads</h2>
+<p>If you have two functions that <em>appear</em> to do the same thing, then you can do a supportive overload. This is useful because it can remove code duplication on your end.</p>
+<p>Below is an example and the proper syntax. Supportive overloads also work for constructors and operators, and will work for methods once they support overloads.</p>
+<pre><code>add function supports (
+    &lt;u32 a, u32 b&gt;       -&gt; u32,
+    &lt;f32 a, f32 b&gt;       -&gt; f32,
+    &lt;string a, string b&gt; -&gt; string,
+)
+{
+    return(a + b);
+}
+
+entry function&lt;&gt; -&gt; u32
+{
+    print_(add(123,456));
+    print_(add(1.23,4.56));
+    print_(add("123","456"));
+}
+</code></pre>
+<p>Notice that in this example, the assembly isn't actually the same, however to you it appears the same.</p>
+</body>
+<script src="../loadIndex.js"></script>
