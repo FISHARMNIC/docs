@@ -5,7 +5,7 @@
 ## Integer
 
 ```
-u32: 32-bit number (int)
+u32: 32-bit number (int) - ignore the u
 u16: 16-bit number (short int)
 u8 : 8-bit  number (signed char)
 ```
@@ -36,6 +36,7 @@ array8   : Same as above but `p8:dynamic`
 fn       : For function types. Can be called from without the `call` keyword
 
 any      : Accepts any 32-bit STATIC type without warning. Can also be called from without `call`
+           Note that any math operations will be done with integer operations
 dyna     : Similar to `any` but for dynamic types
 
 auto     : Assumes its type on first set. Default for untyped uninitiated variables, returns, and properties
